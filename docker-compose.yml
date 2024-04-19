@@ -1,0 +1,13 @@
+version: "3"
+services:
+  http_server:
+    image: http_server
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    ports: 
+      - 4080:4080
+    volumes:
+      - ./html:/var/www/html
+      - ./cfg:/etc/http_server/

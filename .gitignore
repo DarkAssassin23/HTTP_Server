@@ -1,0 +1,5 @@
+obj
+*.conf
+server
+.DS_Store
+._*

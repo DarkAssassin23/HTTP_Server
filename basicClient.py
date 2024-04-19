@@ -11,7 +11,6 @@ HOST = "localhost"
 PORT = 4080
 HTTP_END = "HTTP/1.1\r\n\r\n"
 
-# Invalid http version test
 def invalidHTTP():
 	return "GET / HTTP/0.9\r\n\r\n"
 
@@ -19,7 +18,7 @@ def invalidHTTP():
 def garbageHTTP():
 	return f"'%s'" % ("A" * 50000)
 
-# Try to overflow
+# Try to overflow path length
 def overflow():
 	return f"GET /%s {HTTP_END}" % ("A" * 4080)
 
@@ -29,7 +28,6 @@ def attack():
 def absoluteURL():
 	return f"GET https://google.com {HTTP_END}"
 
-# Bad format
 def badFormat():
 	return f"GET {HTTP_END}"
 
@@ -127,8 +125,4 @@ sock.close()
 
 end = time.time() - start
 
-print(f"Time Elapsed: {end}, Sent request {og}, resp:")
-if(msg == ""):
-	print("no")
-else:
-	print(f"{msg}\n\n")
+print(f"Time Elapsed: {end}, Sent request {og}")

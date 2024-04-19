@@ -7,6 +7,7 @@
   * [Configuration](#configuring)
     * [Examples](#config-examples)
     * [Configuration with Docker](#additional-docker-configuration-steps)
+  * [Using the Client Script](#using-the-client-script)
 
 ## About
 This is a multi-threaded HTTP server written in C, along with a client
@@ -100,3 +101,17 @@ the `Dockerfile`. Modifying the `port` will require you to change the
 change ` - ./html:/var/www/html` under `volumes` in the `docker-compose.yml`
 to be ` - ./html:[html_root]`
 
+## Using the Client Script
+As mentioned in the [About](#about) section, this repo contains a client
+script. The script is a python script which will randomly select from a series
+of possible HTTP requests to send to the server. Before you run the script,
+make sure the `HOST` matches the IP address of your server, and the `PORT`
+also matches the port your server is running on.
+
+With that configured, you can run the script via `python basic_client.py`.
+
+In addition to the Python script, there is also a Bash script to simulate many
+simultaneous requests. By default, it will run the `basic_client.py` script
+150 times. However, you can add more requests by a command line argument. 
+For example, `./many_clients.sh 200` will create 200 simultaneous requests,
+rather than 150.

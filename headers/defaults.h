@@ -3,7 +3,11 @@
 
 #include <stdint.h>
 
+#ifdef DOCKER
+#define CFG_FILE "/etc/http_server/http.conf"
+#else
 #define CFG_FILE "http.conf"
+#endif /* DOCKER */
 #define DEFAULT_SERVER_NAME "HTTP Server"
 #define DEFAULT_PATH "/var/www/html"
 #define DEFAULT_SERVER_PORT 4080

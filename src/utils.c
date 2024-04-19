@@ -72,8 +72,9 @@ ConfigOptions parse_config(FILE *config)
         char *result = trim(line);
         char *value = strchr(result, ' ') + 1;
         char key[(value - result)];
-        strncpy(key, lowerstr(result), sizeof(key) - 1);
+        strncpy(key, result, sizeof(key) - 1);
         key[sizeof(key) - 1] = '\0';
+        lowerstr(key);
 
         if (strcmp(key, "name") == 0)
             strncpy(co.server_name, value, sizeof(co.server_name) - 1);

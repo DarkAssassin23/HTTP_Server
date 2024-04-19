@@ -1,5 +1,13 @@
 # Multi-threaded HTTP Server
 
+## Table of Contents
+  * [About](#about)
+  * [Building](#building)
+  * [Using Docker](#building-and-deploying-with-docker)
+  * [Configuration](#configuring)
+    * [Examples](#config-examples)
+    * [Configuration with Docker](#additional-docker-configuration-steps)
+
 ## About
 This is a multi-threaded HTTP server written in C, along with a client
 script to connect to it for testing. 
@@ -8,6 +16,11 @@ This HTTP server supports the following HTTP requests:
   * GET
   * HEAD
   * OPTIONS 
+
+## Building
+The repo includes a `makefile`, which will build the server from source.
+To build the server from source, run `make`. If you wish to build the
+release version, run `make release`.
 
 ## Building and Deploying with Docker
 The easiest way to get this server up and running is by using the included

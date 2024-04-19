@@ -11,6 +11,6 @@ fi
 
 for (( i=0; i<$clients; i++));
 do
-	python3 basicClient.py $@ &
+	python3 basic_client.py $@ &
 done
 wait
